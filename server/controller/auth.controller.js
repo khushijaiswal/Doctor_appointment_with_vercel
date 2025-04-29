@@ -120,6 +120,8 @@ exports.loginPatient = asyncHandler(async (req, res) => {
     res.cookie("patient-dbs", token, {
         maxAge: 10000 * 60 * 60 * 24,
         httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "none"
     })
     res.json({
         message: "patient login success", result: {
@@ -203,6 +205,8 @@ exports.loginDoctor = asyncHandler(async (req, res) => {
     res.cookie("doctor-dbs", token, {
         maxAge: 10000 * 60 * 60 * 24,
         httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "none"
     })
     res.json({
         message: "Doctor login success", result: {

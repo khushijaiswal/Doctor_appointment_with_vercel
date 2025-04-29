@@ -19,7 +19,7 @@ exports.adminprotected = async (req, res, next) => {
 
 exports.patientProtected = async (req, res, next) => {
     const patient = req.cookies["patient-dbs"]
-    // console.log(patient)
+    console.log(req.cookies)
     if (!patient) {
         return res.status(401).json({ message: "no cookie found" })
     }
