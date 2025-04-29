@@ -72,7 +72,8 @@ exports.verifyAdminOTP = asyncHandler(async (req, res) => {
     res.cookie("admin-dbs", token, {
         maxAge: 1000 * 60 * 60 * 24,
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production"
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "none"
     })
 
     res.json({
