@@ -1,6 +1,6 @@
 const Doctor = require("../model/Doctor")
-const asyncHandler = require("express-async-handler")
-const redisClient = require("../redisClient")
+const asyncHandler = require("express-async-handler");
+const redisClient = require("../redisClient");
 const CACHE_EXPIRY = 60 * 5; // 5 minutes
 
 exports.fetchDoctorsPublic = asyncHandler(async (req, res) => {
